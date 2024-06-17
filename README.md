@@ -1,4 +1,4 @@
-# ⭐DropCloud⭐
+# ⭐DropCloud⭐ The current version has no functionality only ui.
 
 ⭐DropCloud⭐ is a fast and efficent Text Pasting/Uploading Site.
 
