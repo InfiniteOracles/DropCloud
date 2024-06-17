@@ -1,19 +1,26 @@
-from flask import Flask, render_template, request, jsonify, abort, send_file
+from flask import Flask, render_template, request, jsonify, abort, send_file, redirect
 import os
 
 app = Flask(__name__)
 
-@app.route('/')
-def main():
-    return render_template('Main.html')
-
 DIRECTORY = "\\DropCloud\\Storage"
+
+def get_file_path_by_number(directory, file_number):
+    txt_files = [file for file in os.listdir(directory) if file.endswith('.txt')]
+    for filename in txt_files:
+        if filename.startswith(f"Storage{file_number}.txt"):
+            return os.path.join(directory, filename)
+    return None
 
 def count_txt_files(directory):
     if not os.path.exists(directory):
         return 0, []
     txt_files = [file for file in os.listdir(directory) if file.endswith('.txt')]
     return len(txt_files), sorted(txt_files)
+
+@app.route('/')
+def main():
+    return render_template('Main.html')
 
 @app.route('/count')
 def count_files():
@@ -25,10 +32,6 @@ def submit():
     data = request.json  # Assuming JSON data is sent from JavaScript
     value_box = data.get('value_box')
     
-    print("uploading")
-    print(value_box)
-    print("uploading")
-
     directory = DIRECTORY
 
     txt_files_count = len([file for file in os.listdir(directory) if file.endswith('.txt')])
@@ -37,18 +40,21 @@ def submit():
     filename = f"Storage{counter}.txt"
     file_path = os.path.join(directory, filename)
 
-    with open(file_path, 'w') as f:
-        f.write(value_box)
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(value_box)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
     
     return jsonify({"counter": counter})  # Sending JSON response
 
 @app.route('/<int:file_number>')
 def display_file(file_number):
-    total_files, txt_files = count_txt_files(DIRECTORY)
-    if file_number > total_files or file_number <= 0:
-        return abort(404, description="File not found")
+    file_path = get_file_path_by_number(DIRECTORY, file_number)
+    if file_path is None:
+        return redirect('/')
     
-    file_path = os.path.join(DIRECTORY, txt_files[file_number - 1])
+    
     try:
         return send_file(file_path, as_attachment=False)
     except Exception as e:
