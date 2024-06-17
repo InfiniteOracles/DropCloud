@@ -68,7 +68,7 @@
     </header>
 
     <form class="Absolute-Center">
-        <textarea class="Ubuntu-Normal" id="input" name="input" placeholder="//Best Text Upload Site
+        <textarea class="Ubuntu-Normal" id="input_Form" name="input" placeholder="//Best Text Upload Site
         Your Cool Code Here •⩊•"></textarea>
     </form>
 
@@ -90,9 +90,29 @@
         }
     </script>
 
-    <button class ="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
-        Upload
-    </button>
+    <input onclick="Submit_button()" type="submit" class ="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
+
+
+    <script>
+
+        function Submit_button() {
+
+            value = document.getElementById("input_Form").value;
+
+            length = value.length
+
+            console.log(length)
+
+            if (length == 0) {
+                alert("Please put something in the input field to submit.")
+            }
+
+
+        }
+
+
+    </script>
+
 
     <button onclick = "Github_Open()" class ="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
         Github
