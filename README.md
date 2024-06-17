@@ -16,7 +16,7 @@ Install python then use pip install flask to install the flask framework.
 
 And now go to the Url that was pasted in terminal and BOOM your very own DropCloud.
 
-We dont reccomend making your diy DropCloud public as it will be a target for hacking/DDos attacks/Info Stealing
+We don't reccomend making your diy DropCloud public as it will be a target for hacking/DDos attacks/Info Stealing.
 
 # WARNING
 
