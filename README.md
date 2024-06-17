@@ -6,6 +6,8 @@ DropCloud Removes the need for logins So we will not collect one bit of your inf
 
 All you need to do is go to DropCloud paste in you'r text and UPLOAD you will be redirected to a SubDomain that has a unique id for your paste this paste will be stored forever.
 
+# Self Hosting
+
 Sience this is opensource you can host DropCloud ⭐YOURSELF⭐.
 
 DropCloud is built on python and html so it is very easy to setup.
