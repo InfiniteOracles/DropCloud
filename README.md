@@ -18,4 +18,6 @@ And now go to the Url that was pasted in terminal and BOOM your very own DropClo
 
 We dont reccomend making your diy DropCloud public as it will be a target for hacking/DDos attacks/Info Stealing
 
+# WARNING
+
 WE DO NOT COLLECT OR LOOK AT YOUR PASTES THESE PASTES CAN ONLY BE VIEWED WHEN YOUR PASTE ID IS INPUTED THESE IDS CAN BE GUESSED SO DO NOT PUT PIRVATE INFO IN YOUR PASTES.
