@@ -58,33 +58,77 @@
         }
 
         textarea {
-          color:#808080;
+            color: #808080;
         }
+
+        .button-30 {
+            align-items: center;
+            appearance: none;
+            border-radius: 4px;
+            border-width: 0;
+            box-sizing: border-box;
+            color: #36395A;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono", monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s, transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow, transform;
+            font-size: 18px;
+        }
+
+        .button-30:focus {
+            box-shadow: #949191 0 0 0 0.1px inset, rgba(255, 255, 255, 0.1) 0 2px 4px, rgba(255, 255, 255, 0.1) 0 7px 13px -3px, #7a7a7a 0 -3px 0 inset;
+        }
+
+        .button-30:hover {
+            box-shadow: rgba(255, 255, 255, 0.1) 0 4px 8px, rgba(255, 255, 255, 0.1) 0 7px 13px -3px, #7a7979 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .button-30:active {
+            box-shadow: #646363 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+
     </style>
 </head>
-<body style="background-image: url('/static/img/bg.jpg'); background-attachment: fixed; background-size: 100% 100%;">
+<body style="background-color: rgb(25, 25, 25); background-attachment: fixed; background-size: 100% 100%;">
 
     <header>
         <h1 class="Ubuntu-Bold">DropCloud:3</h1>
     </header>
 
     <form class="Absolute-Center" id="submitForm">
-        <textarea class="Ubuntu-Normal" id="input_Form" name="value_box" placeholder="//Best Text Upload Site 
-        Your Cool Code Here •⩊•"></textarea>
+        <textarea class="Ubuntu-Normal" style="border-radius: 10px;" id="input_Form" name="value_box" placeholder="//Best Text Upload Site 
+        Your Cool Code Here •⩊•" spellcheck="false"></textarea>
     </form>
 
-    <button onclick="Submit_button()" class="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
+    <button onclick="Submit_button()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
         Submit
     </button>
 
-    <button onclick="Github_Open()" class="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
+    <button onclick="Github_Open()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
         GitHub
     </button>
 
     <script>
         function Submit_button() {
             var value_box = document.getElementById("input_Form").value;
-    
+
             if (value_box.trim() === "") {
                 alert("Please put something in the input field to submit.");
             } else {
@@ -105,7 +149,7 @@
                   });
             }
         }
-    
+
         function Github_Open() {
             window.open("https://github.com/InfiniteOracles");
         }

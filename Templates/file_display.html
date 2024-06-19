@@ -1,0 +1,93 @@
+<!-- file_display.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropCloud-{{id}}</title>
+
+    <style>
+        @font-face {
+            font-family: 'HeaderFont';
+            src: url('/static/fonts/Ubuntu-Bold.ttf');
+        }
+        .Ubuntu-Bold {
+            font-family: 'HeaderFont', sans-serif;
+            text-align: center;
+        }
+
+        @font-face {
+            font-family: 'HeaderFont';
+            src: url('/static/fonts/Ubuntu-Regular.ttf');
+        }
+        .Ubuntu-Normal {
+            font-family: 'HeaderFont', sans-serif;
+        }
+
+        .Absolute-Center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 650px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.5); /* Remove background */
+            border: 3px solid #000000; /* Add border with solid black color and 3px width */
+            border-radius: 10px; /* Optional: Add border radius for rounded corners */
+        }
+
+        .Absolute-Center textarea {
+            width: calc(100% - 26px); /* Adjusted width to account for padding and border */
+            height: calc(100% - 26px); /* Adjusted height to account for padding and border */
+            resize: none; /* Disable textarea resize handle */
+            border: none; /* Remove default textarea border */
+            background-color: rgba(0, 0, 0, 0.5); /* Make background transparent */
+            font-size: inherit; /* Inherit font size */
+            font-family: inherit; /* Inherit font family */
+            padding: 10px; /* Add padding inside the textarea */
+            margin: 0; /* Remove margin */
+            outline: none; /* Remove outline */
+            line-height: 1.5; /* Match line-height with placeholder text */
+            color: #808080; /* Optional: Adjust text color */
+        }
+
+        .Absolute-Center textarea::placeholder {
+            /* Optional: Adjust font size for placeholder */
+            font-size: 16px;
+        }
+
+        textarea {
+          color:#808080;
+        }
+
+        .Logo {
+          display: block;
+          margin: 20px auto;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 100px; /* Adjust this value to fit the desired size */
+       }
+    </style>
+</head>
+
+<body style="background-color: rgb(25,  25,  25);     background-attachment: fixed; background-size: 100% 100%;">
+    <header>
+        <h1 class="Ubuntu-Bold">Heres your text file :3</h1>
+    </header
+
+
+
+    <pre></pre>
+
+    <form class="Absolute-Center" id="submitForm">
+        <textarea class="Ubuntu-Normal" style="border-radius: 10px;" id="input_Form" name="value_box" placeholder="{{file_content}}" readonly></textarea>
+    </form>
+
+    <label class="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 780px; right: -420px; font-size: 33px;">
+        Your Upload id is  {{id}} DON'T lose this id or you will lose your file.
+    </label>
+</body>
+</html>
