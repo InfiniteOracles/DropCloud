@@ -66,6 +66,18 @@ def display_file(file_prefix):
         return render_template('file_display.html', file_content=file_content, id=file_prefix)
     except Exception as e:
         return abort(500, description=str(e))
+    
+
+@app.route('/<string:file_prefix>/raw')
+def display_file_raw(file_prefix):
+    file_path = get_file_path_by_number(DIRECTORY, file_prefix)
+    if file_path is None or not os.path.exists(file_path):
+        abort(404)  # File not found
+
+    try:
+        return send_file(file_path, as_attachment=False)
+    except Exception as e:
+        return abort(500, description=str(e))
 
 if __name__ == '__main__':
     app.run(debug=True)
