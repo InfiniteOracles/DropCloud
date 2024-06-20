@@ -45,6 +45,9 @@ DropCloud is open-source, allowing you to host it yourself.
     ```
 5. Open your browser and go to the URL provided in the terminal to access your local DropCloud instance.
 
+### Important Note
+We do not recommend making your self-hosted DropCloud instance public as it could be a target for hacking, DDoS attacks, or information theft.
+
 ### API
 
 The API is also very easy to use.
@@ -67,14 +70,6 @@ else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
 
-
-### Important Note
-We do not recommend making your self-hosted DropCloud instance public as it could be a target for hacking, DDoS attacks, or information theft.
-
-## Warning
-- **Privacy**: We do not collect or view your pastes. However, these pastes can be viewed by anyone with the unique URL. Do not paste private information.
-- **Credit**: If you host DropCloud publicly, you must credit the original GitHub repository. You don't need to keep the GitHub button, but a link to the GitHub profile is required somewhere on your site.
-
 ## Instructions for Using the Website
 ### Submitting Plain Text
 1. Enter your text and click "Submit".
@@ -92,4 +87,6 @@ We do not recommend making your self-hosted DropCloud instance public as it coul
 2. If the file is password protected and you need raw access, use `/{YOUR_ID}/raw?password={YOUR_PASSWORD}`.
 
 ## Disclaimer
-We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
+-We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
+- **Privacy**: We do not collect or view your pastes. However, these pastes can be viewed by anyone with the unique URL. Do not paste private information unless you use a strong password.
+- **Credit**: If you host DropCloud publicly, you must credit the original GitHub repository. You don't need to keep the GitHub button, but a link to the GitHub profile is required somewhere on your site.
