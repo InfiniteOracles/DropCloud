@@ -85,6 +85,22 @@ else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
 This example does the same as the last example but instead puts in a password.
+#### Submit Paste to DropCloud (No Password)
+```
+import requests
+
+url = 'http://127.0.0.1:5000//SubmitP'
+data = {
+    "value_box": "{YOUR PASTE HERE}",
+    "password": "{YOUR PASSWORD HERE}"
+}
+headers = {'Content-Type': 'application/json'}
+
+response = requests.post(url, json=data, headers=headers)
+
+print(response.json())
+```
+
 
 ## Disclaimer
 -We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
