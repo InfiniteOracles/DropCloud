@@ -10,7 +10,7 @@ DropCloud is a fast and efficient text pasting/uploading site that prioritizes u
 - **User-Friendly**: Intuitive interface for easy text pasting and retrieval.
 
 ## Detailed Instructions for Using the Website
-Using DropCloud is straightforward. Follow these simple steps:
+Using DropCloud is straightforward. Follow these simple steps:[WEBSITE](https://direct-jania-dropcloud-aaabff56.koyeb.app/)
 
 ### Submitting Plain Text
 1. Enter your text and click "Submit".
