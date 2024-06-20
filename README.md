@@ -7,8 +7,23 @@ DropCloud is a fast and efficient text pasting/uploading site that prioritizes u
 - **Permanent Storage**: Your pasted text is stored forever and accessible via a unique URL.
 - **User-Friendly**: Intuitive interface for easy text pasting and retrieval.
 
-## Usage
+## Detailed Instructions for Using the Website
 Using DropCloud is straightforward. Follow these simple steps:
+
+### Submitting Plain Text
+1. Enter your text and click "Submit".
+2. You will be redirected to a unique file ID associated with your text. Save this file ID to avoid losing your text.
+3. To access your text again, visit the site and append `/{YOUR_ID}` to the URL.
+
+### Password-Protected Submission
+1. Enter your text and set a password of your choice.
+2. Click "Submit".
+3. You will be redirected to a unique file ID. Access to the text requires entering the password you set.
+4. To retrieve the text later, visit the site and append `/{YOUR_ID}` to the URL. You will be prompted to enter the password.
+
+### Accessing Raw Text
+1. For raw text files, use `/{YOUR_ID}/raw`.
+2. If the file is password protected and you need raw access, use `/{YOUR_ID}/raw?password={YOUR_PASSWORD}`.
 
 ### Submitting Plain Text
 1. Paste your text into the provided text area.
@@ -69,22 +84,6 @@ if response.status_code == 200:
 else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
-
-## Instructions for Using the Website
-### Submitting Plain Text
-1. Enter your text and click "Submit".
-2. You will be redirected to a unique file ID associated with your text. Save this file ID to avoid losing your text.
-3. To access your text again, visit the site and append `/{YOUR_ID}` to the URL.
-
-### Password-Protected Submission
-1. Enter your text and set a password of your choice.
-2. Click "Submit".
-3. You will be redirected to a unique file ID. Access to the text requires entering the password you set.
-4. To retrieve the text later, visit the site and append `/{YOUR_ID}` to the URL. You will be prompted to enter the password.
-
-### Accessing Raw Text
-1. For raw text files, use `/{YOUR_ID}/raw`.
-2. If the file is password protected and you need raw access, use `/{YOUR_ID}/raw?password={YOUR_PASSWORD}`.
 
 ## Disclaimer
 -We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
