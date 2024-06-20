@@ -37,30 +37,10 @@ Using DropCloud is straightforward. Follow these simple steps:[WEBSITE](https://
 2. Your text will be displayed on this page.
 
 ## Self-Hosting
-DropCloud is open-source, allowing you to host it yourself.
 
-### Requirements
-- Python
-- Flask (install using `pip install flask`)
+DropCloud is open-source, allowing you to host it yourself. Simply download the source code and run `main.py`. You'll need Python installed along with Flask.
 
-### Setup
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/dropcloud.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd dropcloud
-    ```
-3. Install the required dependencies:
-    ```bash
-    pip install flask
-    ```
-4. Run the application:
-    ```bash
-    python app.py
-    ```
-5. Open your browser and go to the URL provided in the terminal to access your local DropCloud instance.
+
 
 ### Important Note
 We do not recommend making your self-hosted DropCloud instance public as it could be a target for hacking, DDoS attacks, or information theft.
