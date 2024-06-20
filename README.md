@@ -84,6 +84,7 @@ if response.status_code == 200:
 else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
+This example will go to your paste and take the raw text if you need to get text from a paste then you will have to use raw unless you want to use a web scraper which is just unnecessary.
 
 ## Disclaimer
 -We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
