@@ -45,6 +45,29 @@ DropCloud is open-source, allowing you to host it yourself.
     ```
 5. Open your browser and go to the URL provided in the terminal to access your local DropCloud instance.
 
+### API
+
+The API is also very easy to use.
+
+#### Get Raw Text From ID (No Password)
+```python
+import requests
+
+# URL of the website displaying raw text
+url = 'https://direct-jania-dropcloud-aaabff56.koyeb.app/{YOUR_ID}/raw'  # Replace with the actual URL of your paste file
+
+# Send a GET request to the URL
+response = requests.get(url)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Print the text content of the response
+    print(response.text)
+else:
+    print(f"Failed to retrieve content. Status code: {response.status_code}")
+```
+
+
 ### Important Note
 We do not recommend making your self-hosted DropCloud instance public as it could be a target for hacking, DDoS attacks, or information theft.
 
