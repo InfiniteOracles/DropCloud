@@ -89,5 +89,21 @@
     <label class="Ubuntu-Bold" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 780px; right: -420px; font-size: 33px;">
         Your Upload id is  {{id}} DON'T lose this id or you will lose your file.
     </label>
+
+    <script>
+        // JavaScript to check if id ends with 'p' and prompt for password
+        if ("{{id}}".endsWith('p')) {
+            var password = "{{password}}";
+            var enteredPassword = prompt("What's the password?");
+            
+            while (enteredPassword !== password) {
+                enteredPassword = prompt("Incorrect password. What's the password?");
+            }
+            
+            // If password is correct, update textarea with file_content
+            var textarea = document.getElementById('input_Form');
+            textarea.value = "{{file_content}}";
+        }
+    </script>
 </body>
 </html>

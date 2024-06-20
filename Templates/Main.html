@@ -104,56 +104,170 @@
             transform: translateY(2px);
         }
 
+        #sliding-box {
+            position: fixed;
+            top: 0;
+            left: -100%; /* Initially off-screen */
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: left 0.7s ease-out;
+            box-shadow: rgba(255, 255, 255, 0.1) 0 4px 8px, rgba(255, 255, 255, 0.1) 0 7px 13px -3px, #7a7979 0 -3px 0 inset;
+        }
+
+        #box-content {
+            padding: 20px;
+        }
+
+        #exit-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body style="background-color: rgb(25, 25, 25); background-attachment: fixed; background-size: 100% 100%;">
 
-    <header>
-        <h1 class="Ubuntu-Bold">DropCloud:3</h1>
-    </header>
+<header>
+    <h1 class="Ubuntu-Bold">DropCloud:3</h1>
+</header>
 
-    <form class="Absolute-Center" id="submitForm">
-        <textarea class="Ubuntu-Normal" style="border-radius: 10px;" id="input_Form" name="value_box" placeholder="//Best Text Upload Site 
+<form class="Absolute-Center" id="submitForm">
+    <textarea class="Ubuntu-Normal" style="border-radius: 10px;" id="input_Form" name="value_box" placeholder="//Best Text Upload Site 
         Your Cool Code Here •⩊•" spellcheck="false"></textarea>
-    </form>
+</form>
 
-    <button onclick="Submit_button()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
-        Submit
-    </button>
+<button onclick="Submit_button()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -710px;">
+    Submit
+</button>
 
-    <button onclick="Github_Open()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -820px;">
-        GitHub
-    </button>
+<button onclick="Submit_button_Password()" class="button-30" style=" text-align: center;  border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: auto; font-size: larger; position: relative; top: 790px; right: -710px;">
+    Password Submit
+</button>
 
-    <script>
-        function Submit_button() {
-            var value_box = document.getElementById("input_Form").value;
+<button onclick="Github_Open()" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: 100px; font-size: larger; position: relative; top: 790px; right: -710px;">
+    GitHub
+</button>
 
-            if (value_box.trim() === "") {
-                alert("Please put something in the input field to submit.");
-            } else {
-                fetch("/Submit", {
-                    method: "POST",
-                    body: JSON.stringify({ value_box: value_box }),  // Sending JSON data
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).then(response => response.json())  // Assuming Flask sends JSON response
-                  .then(data => {
-                      console.log(data);
-                      window.location.href = "/" + data.counter;  // Redirect to the new file page
-                  })
-                  .catch(error => {
-                      console.error('Error:', error);
-                      alert("Encountered a error please try again later or use a diffrent paste.")
-                  });
+<button id="read-me-button" class="button-30" style="border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #808080; height: 50px; width: auto; font-size: larger; position: relative; top: 810px; right: 400px;">
+    READ ME/PRESS ME!
+</button>
+
+<div id="sliding-box" style="width: 500px;">
+    <div id="box-content">
+        <span style="color: #808080; font-size: 30px;" id="exit-button">&times;</span>
+        <p class="Ubuntu-Normal" style="color: #808080;">
+            <strong>Instructions for Using the Website:</strong>
+            <br><br>
+            Using Cloudbin is straightforward once you understand the process. Below is a quick tutorial:
+            <br><br>
+            <strong>1. Submitting Plain Text:</strong>
+            <br>
+            - Enter your text and click "Submit". You will be redirected to a unique file ID associated with your text. It's crucial to save this file ID to avoid losing your text.
+            <br>
+            - To access your text again, simply visit the site and append /{YOUR ID} to the URL.
+            <br><br>
+            <strong>2. Password-Protected Submission:</strong>
+            <br>
+            - For password-protected text, enter your text and set a password of your choice (REMEMBER THIS PASSWORD).
+            <br>
+            - Upon submission, you will again be redirected to a file ID. This time, access to the text requires entering the password you set.
+            <br>
+            - To retrieve the text later, visit the site and append /{YOUR ID} to the URL. You will be prompted to enter the password.
+            <br><br>
+            <strong>3. Accessing Raw Text:</strong>
+            <br>
+            - For accessing raw text files, use /{YOUR ID}/raw.
+            <br>
+            - If the file is password protected and you need raw access, use /{YOUR ID}/raw?password={YOUR PASSWORD}.
+            <br><br>
+            We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances.
+            <br>
+            We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
+        </p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var readMeButton = document.getElementById('read-me-button');
+        var slidingBox = document.getElementById('sliding-box');
+        var exitButton = document.getElementById('exit-button');
+
+        readMeButton.addEventListener('click', function() {
+            slidingBox.style.left = '0'; // Slide in from left
+        });
+
+        exitButton.addEventListener('click', function() {
+            slidingBox.style.left = '-100%'; // Slide out to left
+        });
+    });
+
+    function Submit_button_Password() {
+        var value_box = document.getElementById("input_Form").value;
+
+        if (value_box.trim() === "") {
+            alert("Please put something in the input field to submit.");
+            return;
+        }
+
+        let password = prompt("Please enter a password (DO NOT FORGET THE PASSWORD)");
+
+        if (!password) {
+            alert("Please enter your password");
+            return;
+        } else {
+            alert("Password entered successfully!");
+
+            fetch("/SubmitP", {
+                method: "POST",
+                body: JSON.stringify({ value_box: value_box, password: password }),  // Sending JSON data
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(response => response.json())  // Assuming Flask sends JSON response
+              .then(data => {
+                  console.log(data);
+                  window.location.href = "/" + data.counter;  // Redirect to the new file page
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert("Encountered an error. Please try again later or use a different paste.");
+              });
+        }
+    }
+
+    function Submit_button() {
+        var value_box = document.getElementById("input_Form").value;
+
+        if (value_box.trim() === "") {
+            alert("Please put something in the input field to submit.");
+            return;
+        }
+
+        fetch("/Submit", {
+            method: "POST",
+            body: JSON.stringify({ value_box: value_box }),  // Sending JSON data
+            headers: {
+                "Content-Type": "application/json"
             }
-        }
+        }).then(response => response.json())  // Assuming Flask sends JSON response
+          .then(data => {
+              console.log(data);
+              window.location.href = "/" + data.counter;  // Redirect to the new file page
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              alert("Encountered a error please try again later or use a different paste.");
+          });
+    }
 
-        function Github_Open() {
-            window.open("https://github.com/InfiniteOracles");
-        }
-    </script>
+    function Github_Open() {
+        window.open("https://github.com/InfiniteOracles");
+    }
+</script>
 
 </body>
 </html>

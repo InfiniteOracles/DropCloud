@@ -1,25 +1,72 @@
-# ⭐DropCloud⭐ The current version has no functionality only ui.
+# ⭐ DropCloud ⭐
 
-⭐DropCloud⭐ is a fast and efficent Text Pasting/Uploading Site.
+DropCloud is a fast and efficient text pasting/uploading site that prioritizes user privacy. With no login requirements, DropCloud ensures that your personal information is never collected. Simply paste your text, upload it, and get a unique URL to access your content anytime.
 
-DropCloud Removes the need for logins So we will not collect one bit of your info. 
+## Features
+- **Privacy-Focused**: No logins required, ensuring complete anonymity.
+- **Permanent Storage**: Your pasted text is stored forever and accessible via a unique URL.
+- **User-Friendly**: Intuitive interface for easy text pasting and retrieval.
 
-All you need to do is go to DropCloud paste in you'r text and UPLOAD you will be redirected to a SubDomain that has a unique id for your paste this paste will be stored forever.
+## Usage
+Using DropCloud is straightforward. Follow these simple steps:
 
-# Self Hosting
+### Submitting Plain Text
+1. Paste your text into the provided text area.
+2. Click the "Upload" button.
+3. You will be redirected to a unique URL containing your pasted text. Save this URL to access your text later.
 
-Sience this is opensource you can host DropCloud ⭐YOURSELF⭐.
+### Accessing Your Text
+1. Visit the unique URL provided after submission.
+2. Your text will be displayed on this page.
 
-DropCloud is built on python and html so it is very easy to setup.
+## Self-Hosting
+DropCloud is open-source, allowing you to host it yourself.
 
-Install python then use pip install flask to install the flask framework.
+### Requirements
+- Python
+- Flask (install using `pip install flask`)
 
-And now go to the Url that was pasted in terminal and BOOM your very own DropCloud.
+### Setup
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/dropcloud.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd dropcloud
+    ```
+3. Install the required dependencies:
+    ```bash
+    pip install flask
+    ```
+4. Run the application:
+    ```bash
+    python app.py
+    ```
+5. Open your browser and go to the URL provided in the terminal to access your local DropCloud instance.
 
-We don't reccomend making your diy DropCloud public as it will be a target for hacking/DDos attacks/Info Stealing.
+### Important Note
+We do not recommend making your self-hosted DropCloud instance public as it could be a target for hacking, DDoS attacks, or information theft.
 
-# WARNING
+## Warning
+- **Privacy**: We do not collect or view your pastes. However, these pastes can be viewed by anyone with the unique URL. Do not paste private information.
+- **Credit**: If you host DropCloud publicly, you must credit the original GitHub repository. You don't need to keep the GitHub button, but a link to the GitHub profile is required somewhere on your site.
 
-WE DO NOT COLLECT OR LOOK AT YOUR PASTES THESE PASTES CAN ONLY BE VIEWED WHEN YOUR PASTE ID IS INPUTED THESE IDS CAN BE GUESSED SO DO NOT PUT PIRVATE INFO IN YOUR PASTES.
+## Instructions for Using the Website
+### Submitting Plain Text
+1. Enter your text and click "Submit".
+2. You will be redirected to a unique file ID associated with your text. Save this file ID to avoid losing your text.
+3. To access your text again, visit the site and append `/{YOUR_ID}` to the URL.
 
-YOU ALSO MUST CREDIT THE GITHUB IF YOU HOST IT PUBLICLY THAT DOESNT MEAN YOU HAVE TO KEEP THE GITHUB BUTTON BUT YOU HAVE TO CREDIT ME SOMEWHERE ON THE WEBSITE MEANING LINK MY GITHUB PROFILE
+### Password-Protected Submission
+1. Enter your text and set a password of your choice.
+2. Click "Submit".
+3. You will be redirected to a unique file ID. Access to the text requires entering the password you set.
+4. To retrieve the text later, visit the site and append `/{YOUR_ID}` to the URL. You will be prompted to enter the password.
+
+### Accessing Raw Text
+1. For raw text files, use `/{YOUR_ID}/raw`.
+2. If the file is password protected and you need raw access, use `/{YOUR_ID}/raw?password={YOUR_PASSWORD}`.
+
+## Disclaimer
+We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
