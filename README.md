@@ -67,6 +67,7 @@ else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
 This example will go to your paste and take the raw text if you need to get text from a paste then you will have to use raw unless you want to use a web scraper which is just unnecessary.
+
 #### Get Raw Text From ID (Password)
 ```python
 import requests
@@ -85,8 +86,9 @@ else:
     print(f"Failed to retrieve content. Status code: {response.status_code}")
 ```
 This example does the same as the last example but instead puts in a password.
-#### Submit Paste to DropCloud (No Password)
-```
+
+#### Submit paste to DropCloud (No Password)
+```python
 import requests
 
 url = 'http://127.0.0.1:5000//SubmitP'
@@ -100,7 +102,21 @@ response = requests.post(url, json=data, headers=headers)
 
 print(response.json())
 ```
+#### Submit paste to DropCloud (Password)
+```python
+import requests
 
+url = 'http://127.0.0.1:5000//Submit'
+data = {
+    "value_box": "{YOUR PASTE HERE}",
+}
+headers = {'Content-Type': 'application/json'}
+
+response = requests.post(url, json=data, headers=headers)
+
+print(response.json())
+```
+Pretty Simple to use the Api as thats all you need to do to use full functionality of the website thru python.
 
 ## Disclaimer
 -We are not responsible for any data loss resulting from guessed passwords, losing your text file ID, or any other circumstances. We will neither view, steal, nor delete your files. They are permanent unless removal is necessary, such as in the case of a malicious file link.
